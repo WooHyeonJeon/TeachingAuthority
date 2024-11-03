@@ -1,0 +1,64 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+  }
+  
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/back.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.mainText {
+    position: absolute; 
+    width: 60vw; /* 창 너비의 60% */
+    height: auto;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.mainText-img {
+    width: 100%; /* .mainText의 크기에 맞게 조정 */
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 3;
+    pointer-events: none; 
+    mask: radial-gradient(circle 100px at var(--x) var(--y), rgba(0, 0, 0, 0) 99%, black 100%);
+    -webkit-mask: radial-gradient(circle 100px at var(--x) var(--y), rgba(0, 0, 0, 0) 99%, black 100%);
+    transition: mask-position 0.1s, -webkit-mask-position 0.1s;
+  }
+
+  /* 작은 이미지 스타일 */
+  .clickable-image {
+    position: absolute;
+    width: 10%; /* 기본 크기를 %로 설정하여 비례하도록 함 */
+    height: auto; /* 높이는 자동으로 조정 */
+    left: calc(100% - 150px); /* .mainText의 오른쪽에 위치 */
+    top: 60px;
+    z-index: 2;
+    pointer-events: all;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+  
+  
+  /* 마우스 오버 시 이미지 확대 */
+  .clickable-image:hover {
+    transform: scale(1.05);
+  }
+
